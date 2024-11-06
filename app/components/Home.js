@@ -5,6 +5,7 @@ import Login from "./Login";
 import Footer from "./Footer";
 import Security from "./Security";
 import useMockLogin from "../hooks/useMockLogin";
+import TopBar from "./TopBar";
 function Home({ adminId, posterId }) {
   const [showModal, setShowModal] = useState(false);
 
