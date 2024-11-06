@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Footer from "../../../components/Footer";
-import Header from "../../../components/Header";
-import Login from "../../../components/Login";
-import Security from "../../../components/Security";
-import { API_URL, site } from "../../../config";
-import useMockLogin from "../../../hooks/useMockLogin";
+import { API_URL, site } from "../../../../config/index";
+import useMockLogin from "../../../../hooks/useMockLogin";
+import Header from "../../../../components/Header";
+import Login from "../../../../components/Login";
+import Footer from "../../../../components/Footer";
+import Security from "../../../../components/Security";
+
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
