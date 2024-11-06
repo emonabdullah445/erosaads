@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
 import Header from "./Header";
 import Login from "./Login";
 import Footer from "./Footer";
