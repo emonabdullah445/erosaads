@@ -1,7 +1,9 @@
+"use client";
+
 import { Form, Formik } from "formik";
 import { useState } from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
-import { site } from "../config";
+import { site } from "../config/index";
 import useMockLogin from "../hooks/useMockLogin";
 import CheckboxField from "./CheckboxField";
 import TextfieldWrapper from "./TextfieldWrapper";

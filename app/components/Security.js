@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import Cookies from "js-cookie";
 import React from "react";
 import { toast } from "react-toastify";
-import { API_URL } from "../config";
-import TextfieldWrapper from "./TextfieldWrapper";
+import { API_URL } from "../config/index";
+import TextfieldWrapper from "./CheckboxField";
 
 function Security({ setShowModal }) {
   const id = Cookies.get("id");
