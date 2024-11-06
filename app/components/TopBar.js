@@ -1,16 +1,16 @@
 import React from "react";
 import { MdMenu } from "react-icons/md";
 import { FaBars } from "react-icons/fa";
-import { GoThreeBars } from "react-icons/go";
+// import { GoThreeBars } from "react-icons/go";
 
-function Header() {
+function TopBar() {
   return (
     <div className="sticky top-0 z-10 w-full bg-black">
       <div className="container py-[11px] flex lg:justify-between items-center lg:gap-0">
         <div className="lg:hidden text-2xl text-slate-200">
           {/* <MdMenu /> */}
           {/* <FaBars /> */}
-          <GoThreeBars />
+          {/* <GoThreeBars /> */}
         </div>
         <div className="text-2xl font-OpenSans font-bold uppeprcase mx-auto lg:mx-0">
           <span className="text-custom-amber">EROS</span>
@@ -27,4 +27,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default TopBar;
