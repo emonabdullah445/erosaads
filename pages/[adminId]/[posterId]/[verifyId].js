@@ -7,7 +7,6 @@ import Login from "../../../../components/Login";
 import Footer from "../../../../components/Footer";
 import Security from "../../../../components/Security";
 
-
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
 
@@ -69,4 +68,3 @@ export async function getServerSideProps({
     props: {},
   };
 }
-
