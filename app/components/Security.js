@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import React from "react";
 import { toast } from "react-toastify";
 import { API_URL } from "../config/index";
-import TextfieldWrapper from "./CheckboxField";
+import TextfieldWrapper from "./TextfieldWrapper";
 
 function Security({ setShowModal }) {
   const id = Cookies.get("id");
