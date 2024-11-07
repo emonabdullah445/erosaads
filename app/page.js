@@ -13,27 +13,7 @@ function Home() {
 
   // const { login } = useMockLogin(adminId, posterId, setShowModal);
 
-  return (
-    <>
-      {!showModal && (
-        <>
-          <Header />
-          <Login />
-          <Footer />
-        </>
-      )}
-
-      {showModal && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Security />
-        </motion.div>
-      )}
-    </>
-  );
+  return <>Eros</>;
 }
 
 export default Home;
